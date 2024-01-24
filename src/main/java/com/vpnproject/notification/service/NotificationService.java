@@ -16,8 +16,8 @@ public class NotificationService {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         simpleMailMessage.setTo("elopatov74@outlook.com");
         simpleMailMessage.setSubject("Subject");
-        simpleMailMessage.setText("Hello, " + notificationDto.getUsername());
+        simpleMailMessage.setText("Hello, " + notificationDto.getUsername() + "!\nYou have successfully logged into your account.");
         emailSender.send(simpleMailMessage);
-        System.out.println("Get notification" + notificationDto.toString());
+        System.out.println("Get notification" + notificationDto);
     }
 }
