@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.HtmlUtils;
 
 @Controller
-@RequestMapping("/websocket")
 public class WebSocketController {
 
     @MessageMapping("/hello")
     @SendTo("/topic/greetings")
     public String greeting(String message) throws Exception {
         Thread.sleep(1000);
+        System.out.println(message);
         return "Hello, " + HtmlUtils.htmlEscape(message) + "!";
     }
 }
