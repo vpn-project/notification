@@ -16,11 +16,6 @@ public class NotificationController {
 
     private final NotificationService notificationService;
 
-    @GetMapping("/test")
-    public String testMethod() {
-        return "String";
-    }
-
     @KafkaListener(topics = "notification_topic", groupId = "notification_topic")
     public void notificationFromKafka(@Payload NotificationDto notificationDto) {
         notificationService.sendNotificationViaEmail(notificationDto);
